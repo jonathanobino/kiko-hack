@@ -47,4 +47,9 @@ angular.module('starter.services', [])
       return null;
     }
   };
-});
+})
+.service("$foto", function($firebaseArray){
+  
+  var fb= new Firebase("https://h-ack-kiko.firebaseio.com/foto");
+  return $firebaseArray(fb);
+})

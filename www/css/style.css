@@ -1,1 +1,55 @@
 /* Empty. Add your own CSS if you like */
+/*.tab-nav{
+	background: rgba(0,0,0,0.7);
+}
+*/
+/*.barra-top{
+	background: #8984c7 !important;
+}
+*/
+.header-item.title{
+	font-weight: 200;
+}
+
+.padding.mod{
+	padding:	0;
+}
+
+.feed{
+	position: relative;
+	background: red;
+	height: 250px;
+	padding-left: 4%;
+	box-size:border-box;
+
+}
+
+.feed .bottom{
+	position: absolute;
+	bottom: 10px;
+	background: rgba(255,255,255,0.7);
+	width: 92%;
+	padding: 5px 15px;
+	border-radius: 4px;
+	font-weight: 200;
+}
+
+.feed .like{
+	float: right;
+}
+ .heart{
+	font-size: 2rem;
+	float: right;
+}
+
+.feed .immagine{
+	background-size: cover;
+}
+
+.bottom .desc{
+	min-width: 85%;
+	display: inline-block;
+	margin-top: 6px;
+}
+
+

@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('kiko', ['ionic', 'starter.controllers', 'starter.services','firebase','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -16,7 +16,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
-      StatusBar.styleLightContent();
+      // StatusBar.styleLightContent();
+      StatusBar.hide();
     }
   });
 })
@@ -43,9 +44,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'tab-dash': {
         templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+        controller: 'StreamCtrl'
       }
     }
+  })
+
+    .state('login', {
+    url: '/login',
+    // views: {
+    //   'tab-dash': {
+    //     templateUrl: 'templates/tab-dash.html',
+    //     controller: 'DashCtrl'
+    //   }
+    // }
+    templateUrl:'templates/login.html'
   })
 
   .state('tab.chats', {
@@ -66,6 +78,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+    .state('tab.foto', {
+      url: '/foto',
+      views: {
+        'tab-foto': {
+          templateUrl: 'templates/tab-photo.html',
+          controller: 'PhotoCtrl'
+        }
+      }
+    })
 
   .state('tab.account', {
     url: '/account',
@@ -78,6 +99,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/login');
 
 });
