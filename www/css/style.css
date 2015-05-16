@@ -128,3 +128,19 @@
 	float: right;
 }
 
+.right-buttons .button{
+	background: transparent;
+	border: none;
+}
+
+.button.cart-button-icon{
+	padding-top: 38px;
+	margin-right: 10px;
+	background-image: url('../img/cart.png');
+	background-repeat: no-repeat;
+	width: 23px;
+	height: 23px;
+	background-size: 23px 23px;
+	background-position: center;
+}
+
