@@ -7,20 +7,27 @@
 	background: #8984c7 !important;
 }
 */
-.header-item.title{
-	font-weight: 200;
-}
 
 .padding.mod{
 	padding:	0;
+	padding-top: 20px
 }
-
+.bar.bar-stable{
+	color: white;
+	font-weight: 100;
+	background-color: #8984C7;
+}
+.bar.bar-stable .title{
+	color: white;
+	font-weight: 200;
+}
 .feed{
 	position: relative;
 	background: red;
-	height: 250px;
+	height: 300px;
 	padding-left: 4%;
 	box-size:border-box;
+	display: block;
 
 }
 
@@ -34,7 +41,14 @@
 	font-weight: 200;
 }
 
-.feed .like{
+/*.feed .bottom::after{
+	width: 100%;
+	height:200%;
+	content: " ";
+	-webkit-filter: blur(1px);
+}*/
+
+.like{
 	float: right;
 }
  .heart{
@@ -52,4 +66,65 @@
 	margin-top: 6px;
 }
 
+.element{
+	position: relative;
+	background: red;
+	height: 300px;
+	padding-left: 4%;
+	box-size:border-box;
+	display: block;
+}
+
+.element .bottom{
+	position: absolute;
+	bottom: 10px;
+	background: rgba(255,255,255,0.7);
+	width: 92%;
+	padding: 5px 15px;
+	border-radius: 4px;
+	font-weight: 200;
+}
+
+.tab-item .icon{
+	margin-top: 2px;
+}
+.tabs-icon-custom-home {
+  background-repeat: no-repeat;
+  background-position:bottom;
+  background-image: url('../img/tabs-icons/home.png');
+  background-size: 23px 21px;
+}
+.tabs-icon-custom-rewards {
+  background-repeat: no-repeat;
+  background-position:bottom;
+  background-image: url('../img/tabs-icons/rewards.png');
+  background-size: 22px 22px;
+}
+.tabs-icon-custom-shoot {
+  background-repeat: no-repeat;
+  background-position:bottom;
+  background-image: url('../img/tabs-icons/shoot.png');
+  background-size: 33px 33px;
+  padding-top: 38px;
+  width: 33px;
+  height: 33px;
+  opacity: 1 !important;
+}
+.tabs-icon-custom-brush {
+  background-repeat: no-repeat;
+  background-position:bottom;
+  background-image: url('../img/tabs-icons/brush.png');
+  background-size: 20px 20px;
+}
+.tabs-icon-custom-more {
+  background-repeat: no-repeat;
+  background-position:center;
+  padding-top: 46px;
+  background-image: url('../img/tabs-icons/more.png');
+  background-size: 23px 6px;
+}
+
+.single-list .button{
+	float: right;
+}
 

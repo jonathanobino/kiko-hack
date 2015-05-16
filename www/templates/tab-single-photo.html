@@ -1,0 +1,56 @@
+<ion-view view-title="Easy pin up look">
+  <ion-content class="padding mod">
+
+  <div class="element" style="background:url({{data.foto}}); background-size:cover;" >
+    
+    <div class="bottom">
+    <div class="desc">{{data.utente}} <span class="like">{{data.like}}</span></div>
+    <span class="ion-ios-heart-outline heart" ng-click="like(elem)"></span>
+    </div>
+
+  </div>
+
+  
+  <ion-list class="single-list">
+
+    <ion-item>
+    <p>Face</p>
+    </ion-item>
+    <ion-item ng-repeat="face in data.face">
+
+    {{face.name}} {{face.value}} 
+
+    <button class="button button-royal button-small button-outline button-positive">
+      {{face.prezzo}},00€
+    </button>
+
+    </ion-item>
+    <ion-item>
+    <p>Eyes</p>
+    </ion-item>
+    <ion-item ng-repeat="eyes in data.eyes">
+
+    {{eyes.name}} {{eyes.value}} 
+
+    <button class="button button-royal button-small button-outline button-positive">
+      {{eyes.prezzo}},00€
+    </button>
+
+    </ion-item>
+    <ion-item>
+    <p>Lips</p>
+    </ion-item>
+    <ion-item ng-repeat="lips in data.lips">
+
+    {{lips.name}} {{lips.value}} 
+
+    <button class="button button-royal  button-small button-outline button-positive">
+      {{lips.prezzo}},00€
+    </button>
+
+    </ion-item>
+
+  </ion-list>
+  
+  </ion-content>
+</ion-view>

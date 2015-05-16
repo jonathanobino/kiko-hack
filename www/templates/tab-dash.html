@@ -1,13 +1,17 @@
 <ion-view view-title="My Feed">
   <ion-content class="padding mod">
 
-    <div ng-repeat="elem in data" class="feed" style="background:url({{elem.foto}}); background-size:cover">      
+    <div ng-repeat="elem in data| orderBy:'-added'" class="feed" style="background:url({{elem.foto}}); background-size:cover; background-position:center;" >      
 <!--       <img ng-src="{{elem.foto}}" class="immagine"> -->
       <div class="bottom">
-      <div class="desc">{{elem.utente}} <span class="like">{{elem.like}}</span></div>
+      <a href="#/tab/dash/{{elem.$id}}" ><div class="desc">{{elem.utente}}<span class="like">{{elem.like}}</span></div></a>
       <span class="ion-ios-heart-outline heart" ng-click="like(elem)"></span>
       </div>
     </div>
+
+    <button class="button button-outline button-positive" ng-click="add()">
+      Prova
+    </button>
 
   </ion-content>
 </ion-view>

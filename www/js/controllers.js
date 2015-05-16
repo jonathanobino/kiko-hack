@@ -3,10 +3,36 @@ angular.module('starter.controllers', [])
 .controller('StreamCtrl', function($scope,$foto) {
 	$scope.data= $foto;
 
+	console.log($scope.data)
+
 	$scope.like= function(elem){
 		elem.like++;
 		$foto.$save(elem);
+		elem.liked = true;
 	}
+
+
+
+	$scope.add= function(){
+
+		var time= Date.now();
+		var data = {
+			"utente":"Jonathan",
+			"descrizione":"prova",
+			"like":8,
+			"added": time
+		} 
+
+		console.log(data);
+		$foto.$add(data);
+	}
+
+})
+
+.controller("SinglePhotoCtrl", function($scope,$stateParams,$foto){
+
+	$scope.data = $foto.$getRecord($stateParams.fotoId);
+
 
 })
 
@@ -40,30 +66,7 @@ angular.module('starter.controllers', [])
 		    $scope.scanBarcode = $cordovaBarcodeScanner
 		      .scan()
 		      .then(function(barcodeData) {
-							        $ionicModal.fromTemplateUrl('./templates/modal.html', {
-					    scope: $scope,
-					    animation: 'slide-in-up'
-					  }).then(function(modal) {
-					    $scope.modal = modal;
-					  });
-					  $scope.openModal = function() {
-					    $scope.modal.show();
-					  };
-					  $scope.closeModal = function() {
-					    $scope.modal.hide();
-					  };
-					  //Cleanup the modal when we're done with it!
-					  $scope.$on('$destroy', function() {
-					    $scope.modal.remove();
-					  });
-					  // Execute action on hide modal
-					  $scope.$on('modal.hidden', function() {
-					    // Execute action
-					  });
-					  // Execute action on remove modal
-					  $scope.$on('modal.removed', function() {
-					    // Execute action
-					  });
+
 		      }, function(error) {
 		        // An error occurred
 		      });

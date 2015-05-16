@@ -51,5 +51,9 @@ angular.module('starter.services', [])
 .service("$foto", function($firebaseArray){
   
   var fb= new Firebase("https://h-ack-kiko.firebaseio.com/foto");
-  return $firebaseArray(fb);
+
+  var ref= fb.orderByChild("added");
+  console.log(fb);
+
+  return $firebaseArray(ref);
 })

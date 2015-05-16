@@ -49,14 +49,18 @@ angular.module('kiko', ['ionic', 'starter.controllers', 'starter.services','fire
     }
   })
 
+  .state("tab.dash-detail",{
+      url:'/dash/:fotoId',
+      views:{
+        'tab-dash':{
+          templateUrl:"templates/tab-single-photo.html",
+          controller:"SinglePhotoCtrl"
+        }
+      }
+    })
+
     .state('login', {
     url: '/login',
-    // views: {
-    //   'tab-dash': {
-    //     templateUrl: 'templates/tab-dash.html',
-    //     controller: 'DashCtrl'
-    //   }
-    // }
     templateUrl:'templates/login.html'
   })
 
@@ -87,6 +91,8 @@ angular.module('kiko', ['ionic', 'starter.controllers', 'starter.services','fire
         }
       }
     })
+
+    
 
   .state('tab.account', {
     url: '/account',
