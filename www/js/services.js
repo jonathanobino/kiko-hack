@@ -57,3 +57,11 @@ angular.module('starter.services', [])
 
   return $firebaseArray(ref);
 })
+.service("loginServ", ["$firebaseAuth", function($firebaseAuth){
+
+  this.userLogin = function(type){
+    var ref = new Firebase("https://h-ack-kiko.firebaseio.com");
+    var auth = $firebaseAuth(ref);
+    return auth.$authWithOAuthPopup(type);
+  };
+}]);

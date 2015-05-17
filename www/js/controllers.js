@@ -89,4 +89,33 @@ angular.module('starter.controllers', [])
 		  $scope.settings = {
 		    enableFriends: true
 		  };
-});
+		})
+	.controller("loginCtrl", ["loginServ", "$scope", "$firebaseAuth", "$location", function(loginServ, $scope, $firebaseAuth, $location){
+		$scope.loginFb = function(){
+			var promise = loginServ.userLogin("facebook");
+
+			promise.then(function(authData) {
+				console.log(authData);
+				$scope.dataLogin = [];
+				$scope.dataLogin.username = authData.facebook.displayName;
+				$location.path("/tab/dash");
+				return $scope.dataLogin;
+			}).catch(function(error) {
+				console.log("Authentication failed:", error);
+			});
+		} 
+		$scope.loginTw = function(){
+			var promise = loginServ.userLogin("twitter");
+
+			promise.then(function(authData) {
+				console.log(authData);
+				$scope.dataLogin = [];
+				$scope.dataLogin.username = authData.twitter.displayName;
+				$location.path("/tab/dash");
+				return $scope.dataLogin;
+			}).catch(function(error) {
+				console.log("Authentication failed:", error);
+			});
+		}
+	}]);
+
