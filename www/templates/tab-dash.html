@@ -1,7 +1,7 @@
 <ion-view view-title="My Feed">
   <ion-content class="padding mod">
 
-    <div ng-repeat="elem in data| orderBy:'-added'" class="feed" style="background:url({{elem.foto}}); background-size:cover; background-position:center;" >      
+    <div ng-repeat="elem in data| orderBy:'-added'" class="feed" style="background:url(data:image/jpeg;base64,{{elem.foto}}); background-size:cover; background-position:center;" >      
 <!--       <img ng-src="{{elem.foto}}" class="immagine"> -->
       <div class="bottom">
       <a href="#/tab/dash/{{elem.$id}}" ><div class="desc">{{elem.utente}}<span class="like">{{elem.like}}</span></div></a>

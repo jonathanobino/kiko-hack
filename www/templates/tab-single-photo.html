@@ -1,11 +1,11 @@
-<ion-view view-title="Easy pin up look">
+<ion-view view-title="{{data.title}}">
   <ion-content class="padding mod">
 
-  <div class="element" style="background:url({{data.foto}}); background-size:cover;" >
+  <div class="element" style="background:url(data:image/jpeg;base64,{{data.foto}}); background-size:cover;" >
     
     <div class="bottom">
     <div class="desc">{{data.utente}} <span class="like">{{data.like}}</span></div>
-    <span class="ion-ios-heart-outline heart" ng-click="like(elem)"></span>
+    <span class="ion-ios-heart-outline heart" ng-click="like(data)"></span>
     </div>
 
   </div>

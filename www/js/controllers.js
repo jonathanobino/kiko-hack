@@ -8,7 +8,6 @@ angular.module('starter.controllers', [])
 	$scope.like= function(elem){
 		elem.like++;
 		$foto.$save(elem);
-		elem.liked = true;
 	}
 
 
@@ -16,8 +15,9 @@ angular.module('starter.controllers', [])
 	$scope.add= function(){
 
 		var time= Date.now();
+		var rand= (Math.random()*100)%4;
 		var data = {
-			"utente":"Jonathan",
+			"utente":"Jonathan"+rand,
 			"descrizione":"prova",
 			"like":8,
 			"added": time
@@ -33,6 +33,11 @@ angular.module('starter.controllers', [])
 
 	$scope.data = $foto.$getRecord($stateParams.fotoId);
 
+	$scope.like= function(elem){
+		elem.like++;
+		$foto.$save(elem);
+	}
+
 
 })
 
@@ -47,75 +52,90 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller("PhotoCtrl", function  ($scope,$cordovaBarcodeScanner,$ionicModal) {
-	$scope.test="test";
+.controller("PhotoCtrl", function  ($scope, $cordovaCamera,$foto,$state) {
+			$scope.test="test";
 
-	// document.add
+		 // document.addEventListener("deviceready", function () {
 
-	// $scope.scanBarcode = function() {
- //        $cordovaBarcodeScanner.scan().then(function(imageData) {
- //            alert(imageData.text);
- //            console.log("Barcode Format -> " + imageData.format);
- //            console.log("Cancelled -> " + imageData.cancelled);
- //        }, function(error) {
- //            console.log("An error happened -> " + error);
- //        });
- //    };
-		 document.addEventListener("deviceready", function () {
+		 	var options = {
+            quality : 75,
+            destinationType : Camera.DestinationType.DATA_URL,
+            sourceType : Camera.PictureSourceType.CAMERA,
+            allowEdit : true,
+            encodingType: Camera.EncodingType.JPEG,
+            popoverOptions: CameraPopoverOptions,
+            targetWidth: 500,
+            targetHeight: 500,
+            saveToPhotoAlbum: false
+        };
 
-		    $scope.scanBarcode = $cordovaBarcodeScanner
-		      .scan()
-		      .then(function(barcodeData) {
+        $scope.take= function () {
 
-		      }, function(error) {
-		        // An error occurred
-		      });
+        	$cordovaCamera.getPicture(options).then(function(imageData) {
+
+        	var now = Date.now();
+        	var utente = "kiko " + Math.floor((Math.random()*100)%3);
+        	var title = "makeup " + Math.floor((Math.random()*150)%4);
+
+        	var data={
+        		foto:imageData,
+        		added: now,
+        		like:0,
+        		utente:utente,
+        		title:title
+        	}
 
 
-		    // NOTE: encoding not functioning yet
-		    $cordovaBarcodeScanner
-		      .encode(BarcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com")
-		      .then(function(success) {
-		        // Success!
-		      }, function(error) {
-		        // An error occurred
-		      });
+            $foto.$add(data).then(function() {
+                alert("Image has been uploaded");
+            });
+            // $state.go($state.current, {}, {reload: true});
+        }, function(error) {
+            console.error(error);
+        });
 
-		  }, false);
+        }
+        
+
+		  // }, false);
+
+
 
 		})
 
-		.controller('AccountCtrl', function($scope) {
+	.controller('AccountCtrl', function($scope) {
 		  $scope.settings = {
 		    enableFriends: true
 		  };
 		})
-	.controller("loginCtrl", ["loginServ", "$scope", "$firebaseAuth", "$location", function(loginServ, $scope, $firebaseAuth, $location){
+	.controller("loginCtrl", ["loginServ", "$scope", "$firebaseAuth", "$state", function(loginServ, $scope, $firebaseAuth, $state){
 		$scope.loginFb = function(){
-			var promise = loginServ.userLogin("facebook");
+			// var promise = loginServ.userLogin("facebook");
 
-			promise.then(function(authData) {
-				console.log(authData);
-				$scope.dataLogin = [];
-				$scope.dataLogin.username = authData.facebook.displayName;
-				$location.path("/tab/dash");
-				return $scope.dataLogin;
-			}).catch(function(error) {
-				console.log("Authentication failed:", error);
-			});
+			// promise.then(function(authData) {
+			// 	console.log(authData);
+			// 	$scope.dataLogin = [];
+			// 	$scope.dataLogin.username = authData.facebook.displayName;
+			// 	$state.go("tab.dash");
+			// 	$scope.dataLogin;
+			// }).catch(function(error) {
+			// 	console.log("Authentication failed:", error);
+			// });
+	 		$state.go("tab.dash");
 		} 
 		$scope.loginTw = function(){
-			var promise = loginServ.userLogin("twitter");
+			// var promise = loginServ.userLogin("twitter");
 
-			promise.then(function(authData) {
-				console.log(authData);
-				$scope.dataLogin = [];
-				$scope.dataLogin.username = authData.twitter.displayName;
-				$location.path("/tab/dash");
-				return $scope.dataLogin;
-			}).catch(function(error) {
-				console.log("Authentication failed:", error);
-			});
+			// promise.then(function(authData) {
+			// 	console.log(authData);
+			// 	$scope.dataLogin = [];
+			// 	$scope.dataLogin.username = authData.twitter.displayName;
+			// 	$state.go("tab.dash");
+			// 	$scope.dataLogin;
+			// }).catch(function(error) {
+			// 	console.log("Authentication failed:", error);
+			// });
+			$state.go("tab.dash");
 		}
 	}]);
 

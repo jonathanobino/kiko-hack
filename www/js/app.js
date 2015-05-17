@@ -13,11 +13,13 @@ angular.module('kiko', ['ionic', 'starter.controllers', 'starter.services','fire
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      $cordovaStatusbar.styleHex('#fff');
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       // StatusBar.styleLightContent();
-      StatusBar.hide();
+
+      // StatusBar.hide();
     }
   });
 })

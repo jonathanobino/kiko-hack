@@ -1,9 +1,34 @@
 <ion-view view-title="Login" hide-nav-bar="true">
-  <ion-content class="padding mod">
+  <ion-content class="mod" scroll="false">
+
+  <div class="login-header">
+  	
+  	<p id="slogan">Iscriviti e scopri un mondo di interazioni e
+vantaggi per migliorare il tuo look.</p>
+  	<div class="tabs-scheme">
+  		<a href="#" class="active">Iscriviti</a>
+  		<a href="#">Accedi</a>
+  	</div>
+
+  </div>
+  	
+  <div id="username-prompt">
+  	<label class="item item-input">
+    	<input type="text" placeholder="Inserisci il tuo username" ng-model="username">
+  	</label>
+ 
+  </div>
+
+  <img src="../img/login-separator.png" style="margin-top: 100px" width="auto" height="22.5px">
+
 
   <!-- <a href="#/tab/dash"> -->
-  	<button class="button button button-positive" ng-click="loginFb()"><span class="ion-social-facebook"></span> Facebook login</button>
-  	<button class="button button button-positive" ng-click="loginTw()"><span class="ion-social-twitter"></span> Twitter login</button>
+  	<button class="social-facebook" ng-click="loginFb()"><span class="ion-social-facebook"></span>  Accedi con Facebook</button>
+  	<button class="social-twitter" ng-click="loginTw()"><span class="ion-social-twitter"></span>  Accedi con Twitter</button>
   <!-- </a> -->    
+
   </ion-content>
+  <div class="tabs-deleter"><!-- #nothingtoseehere --></div>
+
+  </script>
 </ion-view>
