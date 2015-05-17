@@ -64,4 +64,15 @@ angular.module('starter.services', [])
     var auth = $firebaseAuth(ref);
     return auth.$authWithOAuthPopup(type);
   };
-}]);
+}])
+.service("$user", function(){
+  var username = "";
+
+  this.setUser = function(user){
+    username = user;
+  };
+
+  this.getUser = function(){
+    return username;
+  }; 
+});
