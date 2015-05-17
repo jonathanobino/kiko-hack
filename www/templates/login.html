@@ -1,5 +1,5 @@
 <ion-view view-title="Login" hide-nav-bar="true">
-  <ion-content class="mod" scroll="false">
+  <ion-content class="mod" >
 
   <div class="login-header">
   	
@@ -14,9 +14,9 @@ vantaggi per migliorare il tuo look.</p>
   	
   <div id="username-prompt">
   	<label class="item item-input">
-    	<input type="text" placeholder="Inserisci il tuo username" ng-model="username">
+    	<input type="text" placeholder="Inserisci il tuo username" >
   	</label>
- 
+ <button class="button button-royal button-outline" ng-click="loginFb(utente)">Avanti</button>
   </div>
 
   <img src="../img/login-separator.png" style="margin-top: 100px" width="auto" height="22.5px">
@@ -26,7 +26,7 @@ vantaggi per migliorare il tuo look.</p>
   	<button class="social-facebook" ng-click="loginFb()"><span class="ion-social-facebook"></span>  Accedi con Facebook</button>
   	<button class="social-twitter" ng-click="loginTw()"><span class="ion-social-twitter"></span>  Accedi con Twitter</button>
   <!-- </a> -->    
-
+	
   </ion-content>
   <div class="tabs-deleter"><!-- #nothingtoseehere --></div>
 

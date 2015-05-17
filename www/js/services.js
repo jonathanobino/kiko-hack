@@ -69,6 +69,7 @@ angular.module('starter.services', [])
   var username = "";
 
   this.setUser = function(user){
+    console.log(user);
     username = user;
   };
 

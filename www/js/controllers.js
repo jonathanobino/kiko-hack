@@ -52,10 +52,26 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller("PhotoCtrl", function  ($scope, $cordovaCamera,$foto,$state,$user) {
-			$scope.test="test";
+.controller("PhotoCtrl", function ($scope, $cordovaCamera,$foto,$user) {
 
-		 // document.addEventListener("deviceready", function () {
+	$scope.test=$user.getUser();
+
+	console.log($scope.test);
+
+			     // var options = {
+        //     quality : 75,
+        //     destinationType : Camera.DestinationType.DATA_URL,
+        //     sourceType : Camera.PictureSourceType.CAMERA,
+        //     allowEdit : true,
+        //     encodingType: Camera.EncodingType.JPEG,
+        //     popoverOptions: CameraPopoverOptions,
+        //     targetWidth: 500,
+        //     targetHeight: 500,
+        //     saveToPhotoAlbum: false
+        // };
+
+
+		 document.addEventListener("deviceready", function () {
 
 		 	var options = {
             quality : 75,
@@ -69,36 +85,34 @@ angular.module('starter.controllers', [])
             saveToPhotoAlbum: false
         };
 
-        $scope.take= function () {
 
-        	$cordovaCamera.getPicture(options).then(function(imageData) {
+        
 
-        	var now = Date.now();
-        	// var utente = "kiko " + Math.floor((Math.random()*100)%3);
-        	var utente= $user.getUser();
-        	var title = "makeup " + Math.floor((Math.random()*150)%4);
+	        $cordovaCamera.getPicture(options).then(function(imageData) {
 
-        	var data={
-        		foto:imageData,
-        		added: now,
-        		like:0,
-        		utente:user,
-        		title:title
-        	}
-
+	        	var now = Date.now();
+	        	// var utente = "kiko " + Math.floor((Math.random()*100)%3);
+	        	var utente = $user.getUser(); 
+	        	var title = "makeup " + Math.floor((Math.random()*150)%4);
+		        var data={
+			        		foto:imageData,
+			        		added: now,
+			        		like:0,
+			        		utente:utente,
+			        		title:title
+			        	}
 
             $foto.$add(data).then(function() {
                 alert("Image has been uploaded");
             });
-            // $state.go($state.current, {}, {reload: true});
         }, function(error) {
             console.error(error);
         });
+	       
 
-        }
         
 
-		  // }, false);
+		  }, false);
 
 
 
@@ -109,36 +123,21 @@ angular.module('starter.controllers', [])
 		    enableFriends: true
 		  };
 		})
-	.controller("loginCtrl", [ "$scope", "$firebaseAuth", "$state","$user", function( $scope, $firebaseAuth, $state,$user){
+	.controller("loginCtrl", [ "$scope", "$state","$user", function( $scope, $state, $user){
+				
+
 		$scope.loginFb = function(){
-			// var promise = loginServ.userLogin("facebook");
 
-			// promise.then(function(authData) {
-			// 	console.log(authData);
-			// 	$scope.dataLogin = [];
-			// 	$scope.dataLogin.username = authData.facebook.displayName;
-			// 	$state.go("tab.dash");
-			// 	$scope.dataLogin;
-			// }).catch(function(error) {
-			// 	console.log("Authentication failed:", error);
-			// });
+			var user = "kiko-test" ;
 
-			$user.setUser(username);
+			console.log("user "+user)
+			$user.setUser(user);
 	 		$state.go("tab.dash");
 		} 
 		$scope.loginTw = function(){
-			// var promise = loginServ.userLogin("twitter");
-
-			// promise.then(function(authData) {
-			// 	console.log(authData);
-			// 	$scope.dataLogin = [];
-			// 	$scope.dataLogin.username = authData.twitter.displayName;
-			// 	$state.go("tab.dash");
-			// 	$scope.dataLogin;
-			// }).catch(function(error) {
-			// 	console.log("Authentication failed:", error);
-			// });
-			$user.setUser(username);
+			var user = "kiko-test" ;
+			console.log("user "+user)
+			$user.setUser(user);
 			$state.go("tab.dash");
 		}
 	}]);
