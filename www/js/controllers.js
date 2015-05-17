@@ -54,9 +54,9 @@ angular.module('starter.controllers', [])
 
 .controller("PhotoCtrl", function ($scope, $cordovaCamera,$foto,$user) {
 
-	$scope.test=$user.getUser();
+	// var utente = $user.getUser();
 
-	console.log($scope.test);
+	// console.log($scope.test);
 
 			     // var options = {
         //     quality : 75,
@@ -123,21 +123,26 @@ angular.module('starter.controllers', [])
 		    enableFriends: true
 		  };
 		})
+	.controller("rewCtrl",function($scope){
+
+	})
+	.controller("saldoCtrl", function(){
+
+	})
 	.controller("loginCtrl", [ "$scope", "$state","$user", function( $scope, $state, $user){
 				
 
-		$scope.loginFb = function(){
+		$scope.loginFb = function(utente){
 
-			var user = "kiko-test" ;
 
-			console.log("user "+user)
-			$user.setUser(user);
+			var nomeutente = utente;
+
+			$user.setUser(nomeutente);
 	 		$state.go("tab.dash");
 		} 
-		$scope.loginTw = function(){
-			var user = "kiko-test" ;
-			console.log("user "+user)
-			$user.setUser(user);
+		$scope.loginTw = function(utente){
+			var nomeutente = utente;
+			$user.setUser(nomeutente);
 			$state.go("tab.dash");
 		}
 	}]);

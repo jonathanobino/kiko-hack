@@ -60,6 +60,34 @@ angular.module('kiko', ['ionic', 'starter.controllers', 'starter.services','fire
         }
       }
     })
+  // .state("tab.reward",{
+  //   url:"/reward",
+  //   views:{
+  //     'tab-rew':{
+  //       templateUrl:"templates/rewards-card.html"
+  //       controller:"rewCtrl"
+  //     }
+  //   }
+  // })
+
+  .state("tab.rew",{
+    url:'/rew',
+    views:{
+      'tab-rew':{
+        templateUrl:"templates/rewards-card.html",
+        controller:"rewCtrl"
+      }
+    }
+  })
+  .state("tab.saldo",{
+    url:'/rew/saldo',
+    views:{
+      'tab-rew':{
+        templateUrl:"templates/rewards-saldo.html",
+        controller:"saldoCtrl"
+      }
+    }
+  })
 
     .state('login', {
     url: '/login',
@@ -71,7 +99,7 @@ angular.module('kiko', ['ionic', 'starter.controllers', 'starter.services','fire
       url: '/chats',
       views: {
         'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
+          templateUrl: 'templates/experience.html',
           controller: 'ChatsCtrl'
         }
       }
