@@ -52,7 +52,7 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller("PhotoCtrl", function  ($scope, $cordovaCamera,$foto,$state) {
+.controller("PhotoCtrl", function  ($scope, $cordovaCamera,$foto,$state,$user) {
 			$scope.test="test";
 
 		 // document.addEventListener("deviceready", function () {
@@ -74,14 +74,15 @@ angular.module('starter.controllers', [])
         	$cordovaCamera.getPicture(options).then(function(imageData) {
 
         	var now = Date.now();
-        	var utente = "kiko " + Math.floor((Math.random()*100)%3);
+        	// var utente = "kiko " + Math.floor((Math.random()*100)%3);
+        	var utente= $user.getUser();
         	var title = "makeup " + Math.floor((Math.random()*150)%4);
 
         	var data={
         		foto:imageData,
         		added: now,
         		like:0,
-        		utente:utente,
+        		utente:user,
         		title:title
         	}
 
@@ -108,7 +109,7 @@ angular.module('starter.controllers', [])
 		    enableFriends: true
 		  };
 		})
-	.controller("loginCtrl", ["loginServ", "$scope", "$firebaseAuth", "$state", function(loginServ, $scope, $firebaseAuth, $state){
+	.controller("loginCtrl", [ "$scope", "$firebaseAuth", "$state","$user", function( $scope, $firebaseAuth, $state,$user){
 		$scope.loginFb = function(){
 			// var promise = loginServ.userLogin("facebook");
 
@@ -121,6 +122,8 @@ angular.module('starter.controllers', [])
 			// }).catch(function(error) {
 			// 	console.log("Authentication failed:", error);
 			// });
+
+			$user.setUser(username);
 	 		$state.go("tab.dash");
 		} 
 		$scope.loginTw = function(){
@@ -135,6 +138,7 @@ angular.module('starter.controllers', [])
 			// }).catch(function(error) {
 			// 	console.log("Authentication failed:", error);
 			// });
+			$user.setUser(username);
 			$state.go("tab.dash");
 		}
 	}]);
