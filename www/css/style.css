@@ -1,4 +1,60 @@
 /* Empty. Add your own CSS if you like */
+
+
+/* ROBA DI LORENZO lo sguattone front end*/
+button{
+	cursor: pointer;
+	outline: none;
+	border: none;
+	background: none;
+	padding: 0;
+	margin: 0;
+}
+
+.button{
+	cursor: pointer;
+	outline: none;
+	border: none;
+	background: none;
+	padding: 0;
+	margin: 0;
+}
+
+.button:active{
+	cursor: pointer;
+	outline: none;
+	border: none;
+	background: none;
+	padding: 0;
+	margin: 0;
+}
+
+.single-list-divider{
+	background: transparent;
+	text-transform: uppercase;
+	color: #8984C7;
+	padding-top: 32px;
+}
+
+.price {
+	text-transform: uppercase;
+	color: #8984C7;
+	font-size: 10px;
+	font-weight: 500;
+	padding: 6px 8px;
+	border: #8984C7 1px solid;
+	border-radius: 2px;
+	background: transparent;
+}
+
+.price:active {
+	color: #fff;
+	background:  #8984C7
+}
+
+
+
+
 /*.tab-nav{
 	background: rgba(0,0,0,0.7);
 }
@@ -10,7 +66,7 @@
 
 .padding.mod{
 	padding:	0;
-/*	padding-top: 20px*/
+	padding-top: 0px;
 }
 .bar.bar-stable{
 	color: white;
@@ -31,12 +87,13 @@
 
 }
 
-.feed .bottom{
+.bottom{
 	position: absolute;
 	bottom: 10px;
 	background: rgba(255,255,255,0.7);
 	width: 92%;
-	padding: 5px 15px;
+	height: 50px;
+	padding: 15px 15px;
 	border-radius: 4px;
 	font-weight: 200;
 }
@@ -51,19 +108,14 @@
 .like{
 	float: right;
 }
- .heart{
+ /*.heart{
 	font-size: 2rem;
 	float: right;
-}
+	back
+}*/
 
 .feed .immagine{
 	background-size: cover;
-}
-
-.bottom .desc{
-	min-width: 85%;
-	display: inline-block;
-	margin-top: 6px;
 }
 
 .element{
@@ -75,15 +127,52 @@
 	display: block;
 }
 
-.element .bottom{
-	position: absolute;
-	bottom: 10px;
-	background: rgba(255,255,255,0.7);
-	width: 92%;
-	padding: 5px 15px;
-	border-radius: 4px;
-	font-weight: 200;
+.bottom .desc{
+	width: 100%;
+	display: inline-block;
+	margin-top: 2px;
+	text-transform: capitalize;
 }
+
+.descr-right{
+	float: right;
+}
+
+.descr-right > span{
+	display: inline-block;
+}
+
+.bottom{
+	text-decoration: none;
+	color: black;
+	font-size: 15px;
+	color: #000000;
+	line-height: 17px;
+	font-weight: 100;
+}
+
+.bottom a{
+	text-decoration: none;
+	color: black;
+	font-size: 15px;
+	color: #000000;
+	line-height: 17px;
+	font-weight: 100;
+}
+
+.like{
+	margin-right: 8px;
+}
+
+.heart{
+	background: url(../img/heart.png) no-repeat center;
+	background-size: 21px 20px;
+	width: 21px;
+	height: 20px;
+	float: right;
+}
+
+/*TABS*/
 
 .tab-item .icon{
 	margin-top: 2px;
@@ -150,6 +239,12 @@
 	bottom: 0;
 }*/
 
+/*LOGIN PAGE*/
+/*.no-tabs{
+	height: 100%;
+	bottom: 0;
+}*/
+
 .login-header{
 	height: 180px;
 	background-image: linear-gradient(-31deg, #6563A4 0%, #8984C7 97%);
@@ -199,7 +294,7 @@ padding-top: 83px;
 #username-prompt{
 	width: 100%;
 	text-align: center;
-	margin-top: 100px;
+	margin-top: calc((100% - 210px)/2);
 }
 
 #username-prompt .item{
@@ -215,6 +310,13 @@ padding-top: 83px;
 #username-prompt .item input{
 	text-align: center;
 	color: #8E8E8E;
+}
+
+#social-links{
+	position: fixed;
+	bottom: 78px;
+	width: 100%;
+	text-align: center;
 }
 
 .social-facebook,

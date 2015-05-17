@@ -4,22 +4,11 @@
     <div ng-repeat="elem in data| orderBy:'-added'" class="feed" style="background:url(data:image/jpeg;base64,{{elem.foto}}); background-size:cover; background-position:center;" >      
 <!--       <img ng-src="{{elem.foto}}" class="immagine"> -->
       <div class="bottom">
-        <div class="desc">
-          <a href="#/tab/dash/{{elem.$id}}" >
-          {{elem.utente}}
-           </a>
-          
-          <div class="descr-right">
-            <span class="heart" ng-click="like(elem)"></span>
-            <span class="like">{{elem.like}}</span>
-          </div>
-        </div>
-
-        
+      <a href="#/tab/dash/{{elem.$id}}" ><div class="desc">{{elem.utente}}<span class="like">{{elem.like}}</span></div></a>
+      <span class="ion-ios-heart-outline heart" ng-click="like(elem)"></span>
       </div>
     </div>
 
 
   </ion-content>
 </ion-view>
-

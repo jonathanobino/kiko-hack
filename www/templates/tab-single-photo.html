@@ -4,49 +4,67 @@
   <div class="element" style="background:url(data:image/jpeg;base64,{{data.foto}}); background-size:cover;" >
     
     <div class="bottom">
-    <div class="desc">{{data.utente}} <span class="like">{{data.like}}</span></div>
-    <span class="ion-ios-heart-outline heart" ng-click="like(data)"></span>
-    </div>
+        <div class="desc">
+          {{data.utente}}
+          
+          <div class="descr-right">
+            <span class="heart" ng-click="like(data)"></span>
+            <span class="like">{{data.like}}</span>
+          </div>
+        </div>
+
+        
+      </div>
 
   </div>
 
   
   <ion-list class="single-list">
 
-    <ion-item>
-    <p>Face</p>
-    </ion-item>
-    <ion-item ng-repeat="face in data.face">
+    <div class="item item-divider single-list-divider">
+      Faccia
+    </div>
+
+    <ion-item class=" item item-button-right" ng-repeat="face in data.face">
 
     {{face.name}} {{face.value}} 
-
-    <button class="button button-royal button-small button-outline button-positive">
-      {{face.prezzo}},00€
-    </button>
-
-    </ion-item>
-    <ion-item>
-    <p>Eyes</p>
-    </ion-item>
-    <ion-item ng-repeat="eyes in data.eyes">
-
-    {{eyes.name}} {{eyes.value}} 
-
-    <button class="button button-royal button-small button-outline button-positive">
-      {{eyes.prezzo}},00€
-    </button>
+	<div class="button">
+			<button class="price">
+				{{face.prezzo}},00€
+			</button>
+	</div>
 
     </ion-item>
-    <ion-item>
-    <p>Lips</p>
+    
+
+    <div class="item item-divider single-list-divider">
+      Occhi
+    </div>
+
+    <ion-item class=" item item-button-right" ng-repeat="face in data.face">
+
+    {{face.name}} {{face.value}} 
+	<div class="button">
+			<button class="price">
+				{{face.prezzo}},00€
+			</button>
+	</div>
+
     </ion-item>
-    <ion-item ng-repeat="lips in data.lips">
+    
+    
+    <div class="item item-divider single-list-divider">
+      Labbra
+    </div>
 
-    {{lips.name}} {{lips.value}} 
+    <ion-item class=" item item-button-right" ng-repeat="face in data.face">
 
-    <button class="button button-royal  button-small button-outline button-positive">
-      {{lips.prezzo}},00€
-    </button>
+    {{face.name}} {{face.value}} 
+	<div class="button">
+			<button class="price">
+				{{face.prezzo}},00€
+			</button>
+	</div>
 
     </ion-item>
 
